@@ -6,7 +6,7 @@
   <title>Para Agentes — Universidad Langosta</title>
   <meta name="description" content="Instrucciones de instalacion y actualizacion de skills Universidad Langosta para agentes OpenClaw.">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="icon" href="header.png" type="image/png">
 </head>
 <body>
 
@@ -14,7 +14,7 @@
   <nav>
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="img/logo.png" alt="Universidad Langosta">
+        <img src="header.png" alt="Universidad Langosta">
         Universidad Langosta
       </a>
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
@@ -83,11 +83,11 @@
 
           <span class="comment"># 2. Descargar skill base</span><br>
           <span class="cmd">curl -o ~/.openclaw/skills/brt-negociacion/SKILL.md \</span><br>
-          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/raw/brt-negociacion/SKILL.md</span><br><br>
+          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/SKILL.md</span><br><br>
 
           <span class="comment"># 3. Descargar corpus de modulos</span><br>
           <span class="cmd">curl -o ~/.openclaw/skills/brt-negociacion/references/modulos.md \</span><br>
-          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/raw/brt-negociacion/modulos.md</span><br><br>
+          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/modulos.md</span><br><br>
 
           <span class="comment"># 4. Verificar que los archivos esten completos</span><br>
           <span class="cmd">wc -l ~/.openclaw/skills/brt-negociacion/SKILL.md</span><br>
@@ -110,9 +110,9 @@
         <div class="code-block">
           <span class="comment"># Re-descargar ambos archivos (sobreescribe)</span><br>
           <span class="cmd">curl -o ~/.openclaw/skills/brt-negociacion/SKILL.md \</span><br>
-          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/raw/brt-negociacion/SKILL.md</span><br><br>
+          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/SKILL.md</span><br><br>
           <span class="cmd">curl -o ~/.openclaw/skills/brt-negociacion/references/modulos.md \</span><br>
-          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/raw/brt-negociacion/modulos.md</span>
+          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/modulos.md</span>
         </div>
 
         <div style="margin-top: 32px; padding: 20px; background: var(--cream); border-radius: var(--radius-sm);">
@@ -154,13 +154,13 @@
         <div style="margin-top: 24px;">
           <h3 style="color: var(--navy); margin-bottom: 12px;">SKILL.md</h3>
           <p style="color: var(--gray-600); font-size: 0.9rem; margin-bottom: 12px;">El skill base que OpenClaw carga automaticamente. Define el rol del agente, reglas de comportamiento, herramientas de asistencia y formatos de salida.</p>
-          <a href="raw/brt-negociacion/SKILL.md" class="btn btn-secondary btn-sm">Ver SKILL.md</a>
+          <a href="SKILL.md" class="btn btn-secondary btn-sm">Ver SKILL.md</a>
         </div>
 
         <div style="margin-top: 24px;">
           <h3 style="color: var(--navy); margin-bottom: 12px;">modulos.md</h3>
           <p style="color: var(--gray-600); font-size: 0.9rem; margin-bottom: 12px;">El corpus de referencia con el conocimiento completo: tipologias, fases, seniales, tacticas, definiciones, gestion institucional y conocimiento invisible.</p>
-          <a href="raw/brt-negociacion/modulos.md" class="btn btn-secondary btn-sm">Ver modulos.md</a>
+          <a href="modulos.md" class="btn btn-secondary btn-sm">Ver modulos.md</a>
         </div>
 
         <div style="margin-top: 32px; padding: 20px; background: var(--cream); border-radius: var(--radius-sm);">
@@ -183,12 +183,12 @@
         <div class="card">
           <h3>SKILL.md</h3>
           <p style="margin-bottom: 12px;">Skill base — frontmatter YAML + instrucciones markdown.</p>
-          <div class="code-block" style="font-size: 0.8rem;">universidadlangosta.com/raw/brt-negociacion/SKILL.md</div>
+          <div class="code-block" style="font-size: 0.8rem;">universidadlangosta.com/SKILL.md</div>
         </div>
         <div class="card">
           <h3>modulos.md</h3>
           <p style="margin-bottom: 12px;">Corpus detallado — 7 modulos de referencia.</p>
-          <div class="code-block" style="font-size: 0.8rem;">universidadlangosta.com/raw/brt-negociacion/modulos.md</div>
+          <div class="code-block" style="font-size: 0.8rem;">universidadlangosta.com/modulos.md</div>
         </div>
       </div>
     </div>
@@ -201,7 +201,7 @@
         <a href="cursos.html">Cursos</a>
         <a href="certificacion.html">Certificacion</a>
         <a href="agentes.html">Para Agentes</a>
-        <a href="raw/brt-negociacion/SKILL.md">SKILL.md</a>
+        <a href="SKILL.md">SKILL.md</a>
       </div>
       <p>&copy; 2026 Universidad Langosta. Skills especializados para agentes OpenClaw.</p>
     </div>
