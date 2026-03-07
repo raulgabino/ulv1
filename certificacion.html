@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificacion — Universidad Langosta</title>
+  <meta name="description" content="Certifica a tu agente OpenClaw o a ti mismo con casos practicos de negociacion BRT.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="img/header.png" alt="Universidad Langosta">
+        Universidad Langosta
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="certificacion.html" class="active">Certificacion</a>
+        <a href="agentes.html">Para Agentes</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="course-header">
+    <div class="container">
+      <p class="course-meta">Certificacion &middot; BRT Negociacion MX &middot; 4 casos</p>
+      <h1>Examen de certificacion</h1>
+      <p style="opacity:0.75; margin-top:8px;">Responde los 4 escenarios. Luego revela la rubrica y autoevalua. Funciona para humanos y agentes.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+
+      <!-- Instructions -->
+      <div style="background: var(--cream); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 40px;">
+        <strong style="color: var(--navy);">Como funciona:</strong>
+        <ol style="color: var(--gray-600); font-size: 0.9rem; margin-top: 8px; padding-left: 20px;">
+          <li>Lee el escenario</li>
+          <li>Escribe tu diagnostico (o pegale el escenario a tu agente OpenClaw y que responda)</li>
+          <li>Haz clic en "Revelar rubrica" para ver los puntos clave</li>
+          <li>Marca los puntos que tu respuesta (o la del agente) cubrio correctamente</li>
+          <li>Al terminar los 4 casos, ve tu resultado final abajo</li>
+        </ol>
+      </div>
+
+      <!-- ========== CASO 1 ========== -->
+      <div class="test-container" id="caso-1">
+        <div class="test-header">
+          <span class="test-tag">Caso 1 de 4 &middot; Modulos 1, 7</span>
+          <h3>El entusiasta silencioso</h3>
+        </div>
+        <div class="test-body">
+          <div class="scenario-box">
+            Don Ramon es concesionario de 4 unidades en una ruta urbana. En la primera mesa plenaria no dijo nada. Al terminar, se acerco al consultor y pregunto: &laquo;Oiga, y ese fideicomiso como funcionaria? Porque yo ya tengo mi contador y mi facturacion al dia.&raquo; En la segunda reunion, volvio a quedarse callado en mesa pero despues pregunto sobre el pago por kilometro y como se calcula el IPK. No ha dicho ni si ni no al proyecto.
+          </div>
+          <textarea class="response-area" placeholder="Escribe tu diagnostico aqui: tipo de actor, focos rojos, fase, siguiente movimiento..."></textarea>
+          <div class="test-actions">
+            <button class="btn btn-primary btn-sm" onclick="revelarRubrica('rubric-1')">Revelar rubrica</button>
+          </div>
+          <div class="rubric" id="rubric-1">
+            <div class="rubric-header">Rubrica — Caso 1</div>
+            <div class="rubric-body">
+              <div class="rubric-item obligatorio" data-caso="1">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Clasifica como <strong>Tipo C — Tecnicamente curioso</strong></span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="1">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Preguntas especificas (fideicomiso, pago por km, IPK) = senial de alta confiabilidad</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="1">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Nota que &laquo;ya tengo contador y facturacion&raquo; indica criterio fiscal/legal en orden</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="1">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Silencio en mesa publica NO es resistencia — esta procesando</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="1">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Siguiente movimiento: reunion uno-a-uno inmediata, fuera de mesa publica</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="1">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">NO recomienda forzar postura en mesa plenaria</span>
+              </div>
+              <div class="rubric-item deseable" data-caso="1">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Pregunta de criba: verificar capacidad de inversion (integrador vs operador)</span>
+              </div>
+              <div class="error-grave">
+                <strong>Error grave (reprueba automaticamente):</strong> Clasificarlo como Tipo D o recomendar esperar a que hable en mesa publica.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== CASO 2 ========== -->
+      <div class="test-container" id="caso-2">
+        <div class="test-header">
+          <span class="test-tag">Caso 2 de 4 &middot; Modulos 1, 2, 4</span>
+          <h3>La mesa que no avanza</h3>
+        </div>
+        <div class="test-body">
+          <div class="scenario-box">
+            Estas en la Fase 4 con un grupo de 6 concesionarios. Tres ya hicieron el tour al sistema espejo (Fase 3). Los otros tres no han ido. En la ultima reunion, se presento la propuesta de pago por kilometro. Los que fueron al tour hacen preguntas tecnicas. Los que no fueron dicen: &laquo;Eso suena bonito pero aqui es diferente&raquo; y &laquo;Mis choferes nunca van a aceptar eso.&raquo; Un concesionario que fue al tour dice: &laquo;Yo entro, pero sin Don Miguel&raquo; (uno de los que no fue al tour).
+          </div>
+          <textarea class="response-area" placeholder="Escribe tu diagnostico aqui: tipo de actor, focos rojos, fase, siguiente movimiento..."></textarea>
+          <div class="test-actions">
+            <button class="btn btn-primary btn-sm" onclick="revelarRubrica('rubric-2')">Revelar rubrica</button>
+          </div>
+          <div class="rubric" id="rubric-2">
+            <div class="rubric-header">Rubrica — Caso 2</div>
+            <div class="rubric-body">
+              <div class="rubric-item obligatorio" data-caso="2">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Los 3 sin tour NO deberian estar en Fase 4 — la secuencia de compuertas se rompio</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="2">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Los que dicen &laquo;mis choferes no van a aceptar&raquo; son <strong>Tipo D — Drama operativo</strong></span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="2">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">&laquo;Entro pero sin Don Miguel&raquo; activa <strong>Foco rojo 2 — Condicionamiento por personas</strong></span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="2">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">NO rebatir a los Tipo D con datos — desplazar a propuesta escrita</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="2">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Separar procesos: avanzar los 3 del tour a Fase 5, regresar los otros 3 a Fase 3</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="2">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Manejar condicionamiento: participacion de cada actor es independiente</span>
+              </div>
+              <div class="rubric-item deseable" data-caso="2">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">El tour vale por testimonios de pares, no por infraestructura — clave para desbloquear rezagados</span>
+              </div>
+              <div class="error-grave">
+                <strong>Error grave (reprueba automaticamente):</strong> Recomendar avanzar a todos juntos a Fase 5 ignorando que 3 no pasaron por Fase 3.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== CASO 3 ========== -->
+      <div class="test-container" id="caso-3">
+        <div class="test-header">
+          <span class="test-tag">Caso 3 de 4 &middot; Modulos 3, 6</span>
+          <h3>La minuta sospechosa</h3>
+        </div>
+        <div class="test-body">
+          <div class="scenario-box">
+            Recibes la siguiente minuta de la mesa ejecutiva del proyecto BRT:<br><br>
+            <strong>1.</strong> Se reviso el avance del convenio financiero. Pendiente de validar por parte de la Secretaria de Finanzas.<br>
+            <strong>2.</strong> El estudio de demanda se ajustara con base en los resultados del conteo vehicular de marzo.<br>
+            <strong>3.</strong> Se firmo el convenio de colaboracion con el municipio para la cesion de predios del tramo norte.<br>
+            <strong>4.</strong> La licitacion del contratista de obra se revisara en proxima reunion, una vez que se cuente con el dictamen de factibilidad.<br>
+            <strong>5.</strong> Se coordinara con OOMSAPAS la reubicacion de infraestructura hidraulica en el tramo sur.<br>
+            <strong>6.</strong> El modelo operativo de la integradora se revisara en proxima reunion.
+          </div>
+          <textarea class="response-area" placeholder="Etiqueta cada punto (HD, CC, RR, DE, TP), identifica riesgo dominante y compuertas bloqueadas..."></textarea>
+          <div class="test-actions">
+            <button class="btn btn-primary btn-sm" onclick="revelarRubrica('rubric-3')">Revelar rubrica</button>
+          </div>
+          <div class="rubric" id="rubric-3">
+            <div class="rubric-header">Rubrica — Caso 3</div>
+            <div class="rubric-body">
+              <div class="rubric-item obligatorio" data-caso="3">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Etiquetas correctas: (1) CC, (2) TP, (3) HD, (4) RR, (5) DE, (6) RR</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="3">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Punto 3 (predios tramo norte) es el UNICO hito de desbloqueo real</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="3">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Puntos 4 y 6 son RR y ambos estan en ruta critica (contratista + modelo operativo)</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="3">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">RR acumulando en multiples frentes = crisis de sincronizacion</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="3">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Punto 1 (convenio financiero) es CC en ruta critica — bloqueo activo prioritario</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="3">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Punto 5 (OOMSAPAS) es dependencia externa fuera del control del equipo</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="3">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Pregunta critica apunta al convenio financiero o licitacion del contratista como bloqueo dominante</span>
+              </div>
+              <div class="error-grave">
+                <strong>Error grave (reprueba automaticamente):</strong> No detectar la acumulacion de RR o clasificar el punto 6 como avance.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== CASO 4 ========== -->
+      <div class="test-container" id="caso-4">
+        <div class="test-header">
+          <span class="test-tag">Caso 4 de 4 &middot; Modulos 1, 2, 3, 7</span>
+          <h3>El si que no es si</h3>
+        </div>
+        <div class="test-body">
+          <div class="scenario-box">
+            Dona Martha es concesionaria de 8 unidades. Desde la primera reunion dijo que le parecia excelente el proyecto. Acepto hacer el tour, fue, dijo que &laquo;todo muy bien.&raquo; Firmo la carta de intencion sin leerla. En Fase 5 firmo la minuta de compromisos. Cuando se programo la cita ante notario (Fase 6), no se presento. Se reprogramo. No se presento. A la tercera convocatoria, mando a su hijo sin carta poder notariada. En paralelo, otro concesionario te comenta que Dona Martha ha estado hablando con los opositores al proyecto.
+          </div>
+          <textarea class="response-area" placeholder="Escribe tu diagnostico aqui: tipo de actor, focos rojos, seniales de alerta, siguiente movimiento..."></textarea>
+          <div class="test-actions">
+            <button class="btn btn-primary btn-sm" onclick="revelarRubrica('rubric-4')">Revelar rubrica</button>
+          </div>
+          <div class="rubric" id="rubric-4">
+            <div class="rubric-header">Rubrica — Caso 4</div>
+            <div class="rubric-body">
+              <div class="rubric-item obligatorio" data-caso="4">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Identifica <strong>senial de alerta roja: demasiado de acuerdo sin preguntar</strong> desde el inicio</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="4">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">No comparecencia ante notario NO es retraso — es informacion sobre viabilidad real</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="4">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Hijo sin carta poder notariada = representacion NO legitima, acuerdos no vinculantes</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="4">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Detecta <strong>movimientos paralelos:</strong> contacto con opositores mientras simula negociar</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="4">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Activa <strong>Foco rojo 1 — No colaborar:</strong> obstruccion sistematica</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="4">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">Siguiente movimiento: <strong>Fase 7</strong> — emplazamiento formal + garantia de audiencia + ruta administrativa</span>
+              </div>
+              <div class="rubric-item obligatorio" data-caso="4">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">NO intenta persuadir mas — el proceso de persuasion ya se agoto</span>
+              </div>
+              <div class="rubric-item deseable" data-caso="4">
+                <div class="rubric-check" onclick="toggleCheck(this)"></div>
+                <span class="rubric-label">&laquo;Si verbal sostenido + no comparecencia&raquo; es la senial mas peligrosa del corpus</span>
+              </div>
+              <div class="error-grave">
+                <strong>Error grave (reprueba automaticamente):</strong> Recomendar reprogramar la cita ante notario una vez mas o aceptar al hijo sin carta poder.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== RESULTADO FINAL ========== -->
+      <div class="cert-summary" id="resultado-final">
+        <h2>Resultado de certificacion</h2>
+        <p style="color: var(--gray-600); margin-bottom: 16px;">Marca los puntos cubiertos en cada rubrica. El resultado se calcula automaticamente.</p>
+
+        <div id="score-display" style="display:none;">
+          <div id="score-badge" class="cert-badge"></div>
+          <div style="margin-top: 16px; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto;">
+            <p id="score-detail" style="font-size: 0.9rem; color: var(--gray-600);"></p>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="calcularResultado()" style="margin-top:16px;">Calcular resultado</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="cursos.html">Cursos</a>
+        <a href="certificacion.html">Certificacion</a>
+        <a href="agentes.html">Para Agentes</a>
+        <a href="raw/brt-negociacion/SKILL.md">SKILL.md</a>
+      </div>
+      <p>&copy; 2026 Universidad Langosta. Skills especializados para agentes OpenClaw.</p>
+    </div>
+  </footer>
+
+  <script>
+    function revelarRubrica(id) {
+      document.getElementById(id).classList.add('visible');
+    }
+
+    function toggleCheck(el) {
+      el.classList.toggle('checked');
+      if (el.classList.contains('checked')) {
+        el.textContent = '\u2713';
+      } else {
+        el.textContent = '';
+      }
+    }
+
+    function calcularResultado() {
+      // Count checked obligatorios per case
+      const casosConfig = [
+        { caso: '1', obligatorios: 6, minimo: 5 },
+        { caso: '2', obligatorios: 6, minimo: 5 },
+        { caso: '3', obligatorios: 7, minimo: 6 },
+        { caso: '4', obligatorios: 7, minimo: 6 }
+      ];
+
+      let casosAprobados = 0;
+      let deseablesTotal = 0;
+      let detalle = [];
+
+      casosConfig.forEach(config => {
+        const items = document.querySelectorAll(`.rubric-item[data-caso="${config.caso}"]`);
+        let oblig = 0;
+        let des = 0;
+
+        items.forEach(item => {
+          const checked = item.querySelector('.rubric-check').classList.contains('checked');
+          if (checked) {
+            if (item.classList.contains('obligatorio')) oblig++;
+            if (item.classList.contains('deseable')) des++;
+          }
+        });
+
+        const paso = oblig >= config.minimo;
+        if (paso) casosAprobados++;
+        deseablesTotal += des;
+
+        detalle.push(`Caso ${config.caso}: ${oblig}/${config.obligatorios} obligatorios ${paso ? '\u2705' : '\u274C'}`);
+      });
+
+      // Determine level
+      let nivel, badgeClass;
+      if (casosAprobados <= 2) {
+        nivel = 'No certifica';
+        badgeClass = 'fail';
+      } else if (casosAprobados >= 4 && deseablesTotal >= 2) {
+        nivel = 'Certifica — Nivel Completo';
+        badgeClass = 'pass-full';
+      } else if (casosAprobados >= 3) {
+        nivel = 'Certifica — Nivel Base';
+        badgeClass = 'pass-base';
+      } else {
+        nivel = 'No certifica';
+        badgeClass = 'fail';
+      }
+
+      const badge = document.getElementById('score-badge');
+      badge.textContent = nivel;
+      badge.style.background = badgeClass === 'fail'
+        ? 'linear-gradient(135deg, #C62828, #B71C1C)'
+        : badgeClass === 'pass-full'
+          ? 'linear-gradient(135deg, #2E7D32, #1B5E20)'
+          : 'linear-gradient(135deg, var(--lobster), #D14E28)';
+
+      document.getElementById('score-detail').innerHTML =
+        `<strong>Casos aprobados:</strong> ${casosAprobados}/4<br>` +
+        `<strong>Deseables acertados:</strong> ${deseablesTotal}<br><br>` +
+        detalle.join('<br>') +
+        `<br><br><em>Skill: BRT Negociacion MX v1.0.0 &middot; ${new Date().toLocaleDateString('es-MX')}</em>`;
+
+      document.getElementById('score-display').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

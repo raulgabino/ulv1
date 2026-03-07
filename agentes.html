@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Agentes — Universidad Langosta</title>
+  <meta name="description" content="Instrucciones de instalacion y actualizacion de skills Universidad Langosta para agentes OpenClaw.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Universidad Langosta">
+        Universidad Langosta
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="certificacion.html">Certificacion</a>
+        <a href="agentes.html" class="active">Para Agentes</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="course-header">
+    <div class="container">
+      <p class="course-meta">Guia tecnica &middot; OpenClaw</p>
+      <h1>Instalacion para agentes</h1>
+      <p style="opacity:0.75; margin-top:8px;">Todo lo que necesitas para instalar, verificar y mantener actualizados los skills de Universidad Langosta.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(event, 'quickstart')">Inicio rapido</button>
+        <button class="tab" onclick="switchTab(event, 'manual')">Instalacion manual</button>
+        <button class="tab" onclick="switchTab(event, 'actualizacion')">Actualizacion</button>
+        <button class="tab" onclick="switchTab(event, 'estructura')">Estructura del skill</button>
+      </div>
+
+      <!-- Tab: Quickstart -->
+      <div id="quickstart" class="tab-content active">
+        <h2 class="section-title" style="font-size:1.3rem; margin-bottom:24px;">Inicio rapido</h2>
+
+        <h3 style="color: var(--navy); margin-bottom: 12px;">1. Instala desde ClawHub</h3>
+        <div class="code-block">
+          <span class="cmd">clawhub install universidad-langosta/brt-negociacion</span>
+        </div>
+
+        <h3 style="color: var(--navy); margin: 24px 0 12px;">2. Verifica</h3>
+        <div class="code-block">
+          <span class="comment"># Preguntale a tu agente:</span><br>
+          <span class="cmd">Diagnostica a un concesionario Tipo C que pregunta por el fideicomiso.</span><br><br>
+          <span class="comment"># Debe responder con el formato del skill:</span><br>
+          <span class="comment"># Tipo: C -- Tecnicamente curioso + razon</span><br>
+          <span class="comment"># Focos rojos: ninguno detectado</span><br>
+          <span class="comment"># Senial clave: ...</span><br>
+          <span class="comment"># Siguiente movimiento: ...</span>
+        </div>
+
+        <h3 style="color: var(--navy); margin: 24px 0 12px;">3. Certifica</h3>
+        <p style="color: var(--gray-600); font-size: 0.95rem;">Ve a la <a href="certificacion.html">pagina de certificacion</a> y corre los 4 casos con tu agente.</p>
+      </div>
+
+      <!-- Tab: Manual -->
+      <div id="manual" class="tab-content">
+        <h2 class="section-title" style="font-size:1.3rem; margin-bottom:24px;">Instalacion manual</h2>
+
+        <p style="color: var(--gray-600); margin-bottom: 16px;">Si prefieres no usar ClawHub o necesitas una instalacion offline:</p>
+
+        <div class="code-block">
+          <span class="comment"># 1. Crear estructura de directorios</span><br>
+          <span class="cmd">mkdir -p ~/.openclaw/skills/brt-negociacion/references</span><br><br>
+
+          <span class="comment"># 2. Descargar skill base</span><br>
+          <span class="cmd">curl -o ~/.openclaw/skills/brt-negociacion/SKILL.md \</span><br>
+          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/raw/brt-negociacion/SKILL.md</span><br><br>
+
+          <span class="comment"># 3. Descargar corpus de modulos</span><br>
+          <span class="cmd">curl -o ~/.openclaw/skills/brt-negociacion/references/modulos.md \</span><br>
+          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/raw/brt-negociacion/modulos.md</span><br><br>
+
+          <span class="comment"># 4. Verificar que los archivos esten completos</span><br>
+          <span class="cmd">wc -l ~/.openclaw/skills/brt-negociacion/SKILL.md</span><br>
+          <span class="comment"># Debe mostrar ~192 lineas</span><br><br>
+          <span class="cmd">wc -l ~/.openclaw/skills/brt-negociacion/references/modulos.md</span><br>
+          <span class="comment"># Debe mostrar ~222 lineas</span>
+        </div>
+      </div>
+
+      <!-- Tab: Actualizacion -->
+      <div id="actualizacion" class="tab-content">
+        <h2 class="section-title" style="font-size:1.3rem; margin-bottom:24px;">Actualizacion y recertificacion</h2>
+
+        <h3 style="color: var(--navy); margin-bottom: 12px;">Desde ClawHub</h3>
+        <div class="code-block">
+          <span class="cmd">clawhub update universidad-langosta/brt-negociacion</span>
+        </div>
+
+        <h3 style="color: var(--navy); margin: 24px 0 12px;">Manual</h3>
+        <div class="code-block">
+          <span class="comment"># Re-descargar ambos archivos (sobreescribe)</span><br>
+          <span class="cmd">curl -o ~/.openclaw/skills/brt-negociacion/SKILL.md \</span><br>
+          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/raw/brt-negociacion/SKILL.md</span><br><br>
+          <span class="cmd">curl -o ~/.openclaw/skills/brt-negociacion/references/modulos.md \</span><br>
+          <span class="cmd">&nbsp;&nbsp;https://universidadlangosta.com/raw/brt-negociacion/modulos.md</span>
+        </div>
+
+        <div style="margin-top: 32px; padding: 20px; background: var(--cream); border-radius: var(--radius-sm);">
+          <strong style="color: var(--navy);">Politica de versiones:</strong>
+          <p style="color: var(--gray-600); font-size: 0.9rem; margin-top: 8px;">
+            Usamos semver. <strong>Patch</strong> (1.0.x): correcciones menores, no requiere recertificar.
+            <strong>Minor</strong> (1.x.0): modulos nuevos o ampliados, recertificacion recomendada.
+            <strong>Major</strong> (x.0.0): cambios estructurales, recertificacion obligatoria.
+          </p>
+        </div>
+
+        <h3 style="color: var(--navy); margin: 32px 0 12px;">Changelog</h3>
+        <div style="border: 1px solid var(--gray-200); border-radius: var(--radius-sm); overflow: hidden;">
+          <div style="background: var(--gray-100); padding: 16px 20px; border-bottom: 1px solid var(--gray-200);">
+            <strong>v1.0.0</strong> <span style="color: var(--gray-400); font-size: 0.85rem;">— Lanzamiento inicial</span>
+          </div>
+          <div style="padding: 16px 20px; font-size: 0.9rem; color: var(--gray-600);">
+            <ul style="padding-left: 20px;">
+              <li>7 modulos completos: logica de actores, secuencia de negociacion, seniales, tacticas, definiciones, gestion institucional, conocimiento invisible</li>
+              <li>5 herramientas de asistencia: diagnosticar_actor, ubicar_fase, leer_minuta, preparar_reunion, generar_estrategia</li>
+              <li>4 casos de certificacion con rubrica</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Estructura -->
+      <div id="estructura" class="tab-content">
+        <h2 class="section-title" style="font-size:1.3rem; margin-bottom:24px;">Estructura del skill</h2>
+
+        <div class="code-block">
+          <span class="comment"># Estructura de archivos del skill</span><br><br>
+          <span class="cmd">~/.openclaw/skills/brt-negociacion/</span><br>
+          <span class="cmd">&nbsp;&nbsp;SKILL.md</span> <span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Skill base — frontmatter + instrucciones</span><br>
+          <span class="cmd">&nbsp;&nbsp;references/</span><br>
+          <span class="cmd">&nbsp;&nbsp;&nbsp;&nbsp;modulos.md</span> <span class="comment">&nbsp;# Corpus detallado — 7 modulos</span>
+        </div>
+
+        <div style="margin-top: 24px;">
+          <h3 style="color: var(--navy); margin-bottom: 12px;">SKILL.md</h3>
+          <p style="color: var(--gray-600); font-size: 0.9rem; margin-bottom: 12px;">El skill base que OpenClaw carga automaticamente. Define el rol del agente, reglas de comportamiento, herramientas de asistencia y formatos de salida.</p>
+          <a href="raw/brt-negociacion/SKILL.md" class="btn btn-secondary btn-sm">Ver SKILL.md</a>
+        </div>
+
+        <div style="margin-top: 24px;">
+          <h3 style="color: var(--navy); margin-bottom: 12px;">modulos.md</h3>
+          <p style="color: var(--gray-600); font-size: 0.9rem; margin-bottom: 12px;">El corpus de referencia con el conocimiento completo: tipologias, fases, seniales, tacticas, definiciones, gestion institucional y conocimiento invisible.</p>
+          <a href="raw/brt-negociacion/modulos.md" class="btn btn-secondary btn-sm">Ver modulos.md</a>
+        </div>
+
+        <div style="margin-top: 32px; padding: 20px; background: var(--cream); border-radius: var(--radius-sm);">
+          <strong style="color: var(--navy);">Como lee el agente estos archivos:</strong>
+          <p style="color: var(--gray-600); font-size: 0.9rem; margin-top: 8px;">
+            OpenClaw carga el <strong>SKILL.md</strong> automaticamente al detectar que el tema es relevante (por el campo <code>description</code> del frontmatter). El SKILL.md referencia a <code>references/modulos.md</code> que el agente lee bajo demanda cuando necesita el detalle completo de un modulo.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Archivos directos -->
+  <section class="alt">
+    <div class="container">
+      <h2 class="section-title">Archivos directos</h2>
+      <p class="section-subtitle">URLs para descarga directa o lectura por agentes.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>SKILL.md</h3>
+          <p style="margin-bottom: 12px;">Skill base — frontmatter YAML + instrucciones markdown.</p>
+          <div class="code-block" style="font-size: 0.8rem;">universidadlangosta.com/raw/brt-negociacion/SKILL.md</div>
+        </div>
+        <div class="card">
+          <h3>modulos.md</h3>
+          <p style="margin-bottom: 12px;">Corpus detallado — 7 modulos de referencia.</p>
+          <div class="code-block" style="font-size: 0.8rem;">universidadlangosta.com/raw/brt-negociacion/modulos.md</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="cursos.html">Cursos</a>
+        <a href="certificacion.html">Certificacion</a>
+        <a href="agentes.html">Para Agentes</a>
+        <a href="raw/brt-negociacion/SKILL.md">SKILL.md</a>
+      </div>
+      <p>&copy; 2026 Universidad Langosta. Skills especializados para agentes OpenClaw.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(e, tabId) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      e.target.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
